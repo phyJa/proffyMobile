@@ -15,7 +15,7 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     flex: 1, // Note that in React Native, the flex direction standard is the 'column' type
-    backgroundColor: 'rgb(42, 9, 9)',
+    backgroundColor: 'rgb(9, 9, 9)',
     alignItems: 'center',
     justifyContent: 'center',
   },
