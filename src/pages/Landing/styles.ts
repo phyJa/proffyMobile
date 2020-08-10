@@ -16,6 +16,7 @@ const styles = StyleSheet.create({
     title: {
         color: '#FFF',
         fontSize: 20,
+        fontFamily: 'Poppins_400Regular',
         lineHeight: 30,
         marginTop: 80
     },
