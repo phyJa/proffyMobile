@@ -6,7 +6,9 @@ import styles from './styles';
 
 // Images
 import landingImg from '../../assets/images/landing.png';
-import studyIcon from '../../assets/images/icons/study.png'
+import studyIcon from '../../assets/images/icons/study.png';
+import teach from '../../assets/images/icons/give-classes.png';
+import heartIcon from '../../assets/images/icons/heart.png';
 
 function Landing() {
     return (
@@ -22,12 +24,21 @@ function Landing() {
             </Text>
 
             <View style={styles.buttonsContainer}>
-                <TouchableOpacity styles={[styles.button, styles.buttonPrimary]}>
+                <TouchableOpacity style={[styles.button, styles.buttonPrimary]}>
                     <Image source={studyIcon}/>
+                    <Text style={styles.buttonText}>Study</Text>
                 </TouchableOpacity>
 
-                <Text>Study</Text>
+                <TouchableOpacity style={[styles.button, styles.buttonSecondary]}>
+                    <Image source={teach}/>
+                    <Text style={styles.buttonText}>Teach</Text>
+                </TouchableOpacity>
             </View>
+
+            <Text style={styles.totalConnections}> 
+                Total of 300 connections made {' '}
+                <Image source={heartIcon}/>
+             </Text>
         </View>
     );
 }
