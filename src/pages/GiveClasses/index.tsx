@@ -1,10 +1,15 @@
 import React from 'react';
-import { View, Text } from 'react-native';
+import { View, Text, ImageBackground } from 'react-native';
+import styles from './styles';
+
+import teachImageBackground from '../../assets/images/give-classes-background.png';
 
 export default function GiveClasses () {
     return (
-        <View>
-            <Text>Testing</Text>
+        <View style={styles.container}>
+            <ImageBackground source={teachImageBackground} style={styles.content}>
+
+            </ImageBackground>
         </View>
     );
 }
