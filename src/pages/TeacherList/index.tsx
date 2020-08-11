@@ -1,9 +1,12 @@
 import React from 'react';
 import { View, Text } from 'react-native';
 
+// Style
+import styles from './styles';
+
 function TeacherList () {
     return (
-        <View>
+        <View style={styles.container}>
             
         </View>
     )
