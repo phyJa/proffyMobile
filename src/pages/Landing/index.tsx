@@ -19,6 +19,10 @@ function Landing() {
         navigation.navigate('Teach'); // The name attribute in the routes
     }
 
+    function handleNavigateToStudyPages () {
+        navigation.navigate('Study');
+    }
+
     return (
         <View style={styles.container}>
             <Image source={landingImg} style={styles.banner}/>
@@ -34,6 +38,7 @@ function Landing() {
             <View style={styles.buttonsContainer}>
                 <RectButton 
                     style={[styles.button, styles.buttonPrimary]}
+                    onPress={handleNavigateToStudyPages}
                 >
                     <Image source={studyIcon}/>
                     <Text style={styles.buttonText}>Study</Text>
