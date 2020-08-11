@@ -1,5 +1,5 @@
 import React from "react";
-import { View, Image } from "react-native";
+import { View, Image, Text } from "react-native";
 import { BorderlessButton } from "react-native-gesture-handler";
 
 // Style
@@ -16,11 +16,17 @@ export default function PageHeader() {
     
     return (
         <View style={styles.container}>
-            <BorderlessButton onPress={handleGoBack}>
-                <Image source={backIcon} resizeMode="contain" />
-            </BorderlessButton>
+            <View style={styles.topBar}>
+                <BorderlessButton onPress={handleGoBack}>
+                    <Image source={backIcon} resizeMode="contain" />
+                </BorderlessButton>
 
-            <Image source={logoImg} resizeMode="contain"/>
+                <Image source={logoImg} resizeMode="contain"/>
+            </View>
+
+            <Text style={styles.title}>
+                Available proffys
+            </Text>     
         </View>
     );
 }
