@@ -11,9 +11,9 @@ import styles from './styles';
 function TeacherList () {
     return (
         <View style={styles.container}>
-            <PageHeader />
+            <PageHeader title="Available Proffys" />
         </View>
-    )
+    );
 }
 
 export default TeacherList;

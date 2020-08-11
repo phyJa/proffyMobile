@@ -9,7 +9,11 @@ import styles from './styles';
 import backIcon from "../../assets/images/icons/back.png";
 import logoImg from "../../assets/images/logo.png";
 
-export default function PageHeader() {
+interface PageHeaderProps {
+    title: string;
+}
+
+const PageHeader: React.FC<PageHeaderProps> = ({title}) => {
     function handleGoBack() {
 
     }
@@ -25,8 +29,10 @@ export default function PageHeader() {
             </View>
 
             <Text style={styles.title}>
-                Available proffys
+                {title}
             </Text>     
         </View>
     );
 }
+
+export default PageHeader;
