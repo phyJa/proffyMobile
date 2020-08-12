@@ -50,9 +50,9 @@ export default function StudyTabs() {
                 component={TeacherList} 
                 options={{
                     tabBarLabel: "Proffys",
-                    tabBarIcon: ({ color, size }) => { // The same color and size passed in tabBarOptions property
+                    tabBarIcon: ({ color, size, focused }) => { // The same color and size passed in tabBarOptions property (inactiveTintColor)
                         return (
-                            <Ionicons name="ios-easel" color={color} size={size}/>
+                            <Ionicons name="ios-easel" color={focused ? "#8257E5" : color} size={size}/>
                         );
                     }
                 }}
@@ -63,9 +63,9 @@ export default function StudyTabs() {
                 component={Favorites} 
                 options={{
                     tabBarLabel: "Favorites",
-                    tabBarIcon: ({ color, size }) => { // The same color and size passed in tabBarOptions property
+                    tabBarIcon: ({ color, size, focused }) => { // The same color and size passed in tabBarOptions property
                         return (
-                            <Ionicons name="ios-heart" color={color} size={size}/>
+                            <Ionicons name="ios-heart" color={focused ? "#8257E5" : color} size={size}/>
                         );
                     }
                 }}
