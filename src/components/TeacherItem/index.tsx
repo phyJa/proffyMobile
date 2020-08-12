@@ -34,7 +34,7 @@ function TeacherItem() {
                     Lorem ipsum dolor, sit amet consectetur adipisicing elit.
                     {'\n'}{'\n'}
                     In blanditiis dolore at temporibus, sunt similique illum veniam, possimus porro
-                    officia unde consequuntur natus dolorem adipisci illo numquam libero voluptas molestias.
+                    officia unde consequuntur.
             </Text>
 
             <View style={styles.footer}>
@@ -46,6 +46,11 @@ function TeacherItem() {
                 <View style={styles.buttonsContainer}>
                     <RectButton style={styles.favoriteButton}>
                         <Image source={heartOutlineIcon} />
+                    </RectButton>
+
+                    <RectButton style={styles.contactButton}>
+                        <Image source={whatsAppIcon} />
+                        <Text style={styles.contactButtonText}>Contact</Text>
                     </RectButton>
                 </View>
             </View>
