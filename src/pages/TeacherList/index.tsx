@@ -13,10 +13,14 @@ function TeacherList () {
         <View style={styles.container}>
             <PageHeader title="Available Proffys" />
 
-            <ScrollView>
+            <ScrollView
+                style={styles.teacherList}
+            >
+                <TeacherItem />
+                <TeacherItem />
+                <TeacherItem />
                 <TeacherItem />
             </ScrollView>
-            
         </View>
     );
 }
