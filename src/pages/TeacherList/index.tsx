@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text } from 'react-native';
+import { View, Text, ScrollView } from 'react-native';
 
 // Components
 import PageHeader from '../../components/PageHeader';
@@ -13,7 +13,10 @@ function TeacherList () {
         <View style={styles.container}>
             <PageHeader title="Available Proffys" />
 
-            <TeacherItem />
+            <ScrollView>
+                <TeacherItem />
+            </ScrollView>
+            
         </View>
     );
 }
