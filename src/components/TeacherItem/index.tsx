@@ -1,5 +1,5 @@
 import React from "react";
-import { View, Image, Text } from "react-native";
+import { View, Image, Text, Linking } from "react-native";
 import { RectButton } from "react-native-gesture-handler";
 
 // Interfaces
@@ -28,7 +28,7 @@ import whatsAppIcon from '../../assets/images/icons/whatsapp.png';
 
 const TeacherItem:React.FC<TeacherItemProps> = ({teacher}) => {
     function handleLinkToWhatsapp() {
-
+        Linking.openURL(`whatsapp://send?phone=${teacher.whatsapp}`);
     }
     
     return (
