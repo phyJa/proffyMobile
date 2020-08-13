@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { View, Text, ScrollView, TextInput } from 'react-native';
 import { BorderlessButton, RectButton } from 'react-native-gesture-handler';
 import { Feather } from "@expo/vector-icons";
+import api from '../../services/api';
 
 // Components
 import PageHeader from '../../components/PageHeader';
@@ -21,9 +22,26 @@ function TeacherList () {
     const [weekDay, setWeekDay] = useState("");
     const [time, setTime] = useState("");
 
+    // Teachers
+    const[teachers, setTeachers] = useState([]);
+
     // Functions
     function handleToggleFiltersVisible() {
         setIsFiltersVisible(!isFiltersVisible);
+    }
+
+    async function handleFiltersSubmit() {
+        //To use queries, use it inside a params object
+        const response = await api.get('/classes',
+            {
+                params: {
+                    subject,
+                    week_day: weekDay,
+                    time
+                }
+            }
+        )
+        setTeachers(response.data);
     }
 
     return (
@@ -76,7 +94,10 @@ function TeacherList () {
                             </View>
                         </View>
 
-                        <RectButton style={styles.submitButton}>
+                        <RectButton 
+                            style={styles.submitButton}
+                            onPress={handleFiltersSubmit}
+                        >
                             <Text style={styles.submitButtonText}>
                                 Filter
                             </Text>
@@ -92,10 +113,13 @@ function TeacherList () {
                     paddingVertical: 16
                 }}
             >
-                <TeacherItem />
-                <TeacherItem />
-                <TeacherItem />
-                <TeacherItem />
+                {
+                    teachers.map(
+                      (teacher) => {
+                          return (<TeacherItem />);
+                      }  
+                    )
+                }
             </ScrollView>
         </View>
     );
