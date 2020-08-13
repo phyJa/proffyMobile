@@ -4,9 +4,10 @@ import { BorderlessButton, RectButton } from 'react-native-gesture-handler';
 import { Feather } from "@expo/vector-icons";
 import api from '../../services/api';
 
-// Components
+// Components and interfaces
 import PageHeader from '../../components/PageHeader';
-import TeacherItem from '../../components/TeacherItem';
+
+import TeacherItem, { Teacher } from '../../components/TeacherItem';
 
 // Style
 import styles from './styles';
@@ -41,6 +42,7 @@ function TeacherList () {
                 }
             }
         )
+        setIsFiltersVisible(false);
         setTeachers(response.data);
     }
 
@@ -115,8 +117,8 @@ function TeacherList () {
             >
                 {
                     teachers.map(
-                      (teacher) => {
-                          return (<TeacherItem />);
+                      (teacher: Teacher) => {
+                          return (<TeacherItem key={teacher.id} teacher={teacher}/>);
                       }  
                     )
                 }
