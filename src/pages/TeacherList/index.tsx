@@ -8,13 +8,12 @@ import TeacherItem from '../../components/TeacherItem';
 // Style
 import styles from './styles';
 
-
 function TeacherList () {
-    const[isFiltersValid, setIsFiltersValid] = useState(false);
+    const [isFiltersValid, setIsFiltersValid] = useState(false);
 
     return (
         <View style={styles.container}>
-            <PageHeader title="Available Proffys">
+            <PageHeader title="Available Proffys" headerRight={<Text>Hello</Text>}>
                 {isFiltersValid && (
                     <View style={styles.searchForm}>
                         <Text style={styles.label}> Subject </Text>
