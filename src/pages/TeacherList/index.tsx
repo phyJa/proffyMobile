@@ -24,7 +24,10 @@ function TeacherList () {
     const [time, setTime] = useState("");
 
     // Teachers
-    const[teachers, setTeachers] = useState([]);
+    const [teachers, setTeachers] = useState([]);
+
+    // Favorites
+    const [favorites, setFavorites] = useState([]);
 
     // Functions
     function handleToggleFiltersVisible() {

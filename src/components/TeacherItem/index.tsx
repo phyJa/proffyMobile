@@ -28,7 +28,7 @@ import whatsAppIcon from '../../assets/images/icons/whatsapp.png';
 
 const TeacherItem:React.FC<TeacherItemProps> = ({teacher}) => {
     function handleLinkToWhatsapp() {
-        Linking.openURL(`whatsapp://send?phone=${teacher.whatsapp}`);
+        Linking.openURL(`whatsapp://send?phone=${teacher.whatsapp}`); // Learn more about Deep Linking
     }
     
     return (
