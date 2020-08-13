@@ -40,6 +40,26 @@ const TeacherItem:React.FC<TeacherItemProps> = ({teacher, favorited}) => {
             // Remove from favorites
         } else {
             // Add to favorites
+
+            // Get the favorites from the phone database
+            const favorites = await AsyncStorage.getItem('favorites');
+
+            // Create an empty array
+            let favoritesArray = [];
+
+            // If the favorites from the database exist, put them in the empty array
+            if(favorites) {
+                favoritesArray = JSON.parse(favorites)
+            }
+            
+            // Add the teacher to the favoritesArray
+            favoritesArray.push(teacher);
+
+            //Change the value of isFavorited to true
+            setIsFavorited(true);
+
+            // Set in the phone storage the new favorites
+            await AsyncStorage.setItem('favorites', JSON.stringify(favoritesArray))
         }
     }
     
