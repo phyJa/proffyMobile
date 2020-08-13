@@ -11,7 +11,9 @@ import styles from './styles';
 function TeacherList () {
     return (
         <View style={styles.container}>
-            <PageHeader title="Available Proffys" />
+            <PageHeader title="Available Proffys">
+                <Text>Testing</Text>
+            </PageHeader>
 
             <ScrollView
                 style={styles.teacherList}
