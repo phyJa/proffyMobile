@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { View, Text, ScrollView, TextInput } from 'react-native';
 
 // Components
@@ -10,42 +10,46 @@ import styles from './styles';
 
 
 function TeacherList () {
+    const[isFiltersValid, setIsFiltersValid] = useState(false);
+
     return (
         <View style={styles.container}>
             <PageHeader title="Available Proffys">
-                <View style={styles.searchForm}>
-                    <Text style={styles.label}> Subject </Text>
-                    
-                    <TextInput
-                        placeholderTextColor="#c1bccc" 
-                        style={styles.input}
-                        placeholder="Which is the subject?"
-                    />
+                {isFiltersValid && (
+                    <View style={styles.searchForm}>
+                        <Text style={styles.label}> Subject </Text>
+                        
+                        <TextInput
+                            placeholderTextColor="#c1bccc" 
+                            style={styles.input}
+                            placeholder="Which is the subject?"
+                        />
 
-                    <View style={styles.inputGroup}>
-                        <View style={styles.inputBlock}>
-                        
-                            <Text style={styles.label}> Week day </Text>
-                        
-                            <TextInput
-                                placeholderTextColor="#c1bccc" 
-                                style={styles.input}
-                                placeholder="Type the week day"
-                            />
-                        </View>
+                        <View style={styles.inputGroup}>
+                            <View style={styles.inputBlock}>
+                            
+                                <Text style={styles.label}> Week day </Text>
+                            
+                                <TextInput
+                                    placeholderTextColor="#c1bccc" 
+                                    style={styles.input}
+                                    placeholder="Type the week day"
+                                />
+                            </View>
 
-                        <View style={styles.inputBlock}>
-                        
-                            <Text style={styles.label}> Time </Text>
-                        
-                            <TextInput
-                                placeholderTextColor="#c1bccc" 
-                                style={styles.input}
-                                placeholder="Type the time"
-                            />
+                            <View style={styles.inputBlock}>
+                            
+                                <Text style={styles.label}> Time </Text>
+                            
+                                <TextInput
+                                    placeholderTextColor="#c1bccc" 
+                                    style={styles.input}
+                                    placeholder="Type the time"
+                                />
+                            </View>
                         </View>
                     </View>
-                </View>
+                )}
             </PageHeader>
 
             <ScrollView
