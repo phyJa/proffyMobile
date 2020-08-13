@@ -28,7 +28,7 @@ function TeacherList () {
     const [teachers, setTeachers] = useState([]);
 
     // Favorites
-    const [favorites, setFavorites] = useState([]);
+    const [favorites, setFavorites] = useState<number[]>([]);
 
     // Functions
     function handleToggleFiltersVisible() {
@@ -44,7 +44,13 @@ function TeacherList () {
             AsyncStorage.getItem('favorites').then(
                 (response) => {
                     if(response) {
-                        setFavorites(JSON.parse(response));
+                        const favoritedTeachers = JSON.parse(response);
+                        const favoritedTeachersIds = favoritedTeachers.map(
+                            (favoriteTeacher) => {
+                                return favoriteTeacher.id;
+                            }
+                        );
+                        setFavorites(favoritedTeachersIds);
                     }
                 }
             )
@@ -139,7 +145,13 @@ function TeacherList () {
                 {
                     teachers.map(
                       (teacher: Teacher) => {
-                          return (<TeacherItem key={teacher.id} teacher={teacher}/>);
+                            return (
+                                <TeacherItem 
+                                    key={teacher.id} 
+                                    teacher={teacher}
+                                    favorited={favorites.includes(teacher.id)}
+                                />
+                            );
                       }  
                     )
                 }

@@ -14,7 +14,8 @@ export interface Teacher {
 }
 
 interface TeacherItemProps {
-    teacher: Teacher
+    teacher: Teacher,
+    favorited: boolean
 }
 
 
