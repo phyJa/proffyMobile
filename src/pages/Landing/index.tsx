@@ -1,7 +1,8 @@
-import React from 'react';
+import React, {useState, useEffect} from 'react';
 import { View, Image, Text, TouchableOpacity } from 'react-native';
 import { useNavigation } from "@react-navigation/native";
 import { RectButton } from "react-native-gesture-handler"; // This will replace TouchableOpacity to give a more special effect on pressing a button. This comes with the navigation package.
+import api from '../../services/api';
 
 // Style
 import styles from './styles';
@@ -22,6 +23,28 @@ function Landing() {
     function handleNavigateToStudyPages () {
         navigation.navigate('Study');
     }
+
+    //Let's use states once more, but at this time starting with the value 0
+    const [totalConnections, setTotalConnections] = useState(0);
+    
+    // Then, import { useEffect } from react. This is a function with two
+    // parameters: 
+    // 1. A function (the first)
+    // 2. An array of dependencies, which will state when to call the 
+    // first parameter. When this array has its values changed, it calls
+    // the first argument again. If you want to execute the function only once
+    // when the component is shown in screen, then keep the array empty.
+    useEffect(
+        () => {
+            api.get('/connections').then(response => {
+                    const {total} = response.data; // or const total = response.data.total;
+
+                    setTotalConnections(total);
+                }
+            );
+        },
+        []
+    );
 
     return (
         <View style={styles.container}>
@@ -54,7 +77,7 @@ function Landing() {
             </View>
 
             <Text style={styles.totalConnections}> 
-                Total of 300 connections made {' '}
+                Total of {totalConnections} connections made {' '}
                 <Image source={heartIcon}/>
              </Text>
         </View>

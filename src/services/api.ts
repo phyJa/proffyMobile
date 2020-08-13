@@ -5,6 +5,6 @@ const api = axios.create({
     // Replace exp by http
     // Replace 19000 by 3333 (the server port)
     baseURL: 'http://192.168.0.36:3333'
-})
+});
 
 export default api;
