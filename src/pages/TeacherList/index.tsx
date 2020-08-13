@@ -12,8 +12,16 @@ import styles from './styles';
 
 
 function TeacherList () {
+    // States
+    // Hide/show filters
     const [isFiltersVisible, setIsFiltersVisible] = useState(false);
+    
+    // Inputs
+    const [subject, setSubject] = useState("");
+    const [weekDay, setWeekDay] = useState("");
+    const [time, setTime] = useState("");
 
+    // Functions
     function handleToggleFiltersVisible() {
         setIsFiltersVisible(!isFiltersVisible);
     }
@@ -36,6 +44,8 @@ function TeacherList () {
                             placeholderTextColor="#c1bccc" 
                             style={styles.input}
                             placeholder="Which is the subject?"
+                            value={subject}
+                            onChangeText={(text) => setSubject(text)}
                         />
 
                         <View style={styles.inputGroup}>
@@ -47,6 +57,8 @@ function TeacherList () {
                                     placeholderTextColor="#c1bccc" 
                                     style={styles.input}
                                     placeholder="Type the week day"
+                                    value={weekDay}
+                                    onChangeText={(text) => setWeekDay(text)}
                                 />
                             </View>
 
@@ -58,6 +70,8 @@ function TeacherList () {
                                     placeholderTextColor="#c1bccc" 
                                     style={styles.input}
                                     placeholder="Type the time"
+                                    value={time}
+                                    onChangeText={(text) => setTime(text)}
                                 />
                             </View>
                         </View>
