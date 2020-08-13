@@ -1,5 +1,7 @@
 import React from 'react';
 import { View, ScrollView } from 'react-native';
+
+// Style
 import styles from './styles';
 
 // Components
