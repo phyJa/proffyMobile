@@ -1,8 +1,9 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { View, Text, ScrollView, TextInput } from 'react-native';
 import { BorderlessButton, RectButton } from 'react-native-gesture-handler';
 import { Feather } from "@expo/vector-icons";
 import api from '../../services/api';
+import AsyncStorage from "@react-native-community/async-storage";
 
 // Components and interfaces
 import PageHeader from '../../components/PageHeader';
@@ -33,6 +34,23 @@ function TeacherList () {
     function handleToggleFiltersVisible() {
         setIsFiltersVisible(!isFiltersVisible);
     }
+
+    useEffect(
+        () => {
+            // Go to the Phone Database, search for an item with a key named 'favorites'.
+            // The only thing you can save inside it is text.
+            // So, we will use the text data from the phone DataBase
+            // into JSON 
+            AsyncStorage.getItem('favorites').then(
+                (response) => {
+                    if(response) {
+                        setFavorites(JSON.parse(response));
+                    }
+                }
+            )
+        },
+        []
+    )
 
     async function handleFiltersSubmit() {
         //To use queries, use it inside a params object
