@@ -1,6 +1,7 @@
-import React from "react";
+import React, { useState } from "react";
 import { View, Image, Text, Linking } from "react-native";
 import { RectButton } from "react-native-gesture-handler";
+import AsyncStorage from '@react-native-community/async-storage';
 
 // Interfaces
 export interface Teacher {
@@ -27,9 +28,19 @@ import heartOutlineIcon from '../../assets/images/icons/heart-outline.png';
 import unfavoriteIcon from '../../assets/images/icons/unfavorite.png';
 import whatsAppIcon from '../../assets/images/icons/whatsapp.png';
 
-const TeacherItem:React.FC<TeacherItemProps> = ({teacher}) => {
+const TeacherItem:React.FC<TeacherItemProps> = ({teacher, favorited}) => {
+    const [isFavorited, setIsFavorited] = useState(favorited);
+    
     function handleLinkToWhatsapp() {
         Linking.openURL(`whatsapp://send?phone=${teacher.whatsapp}`); // Learn more about Deep Linking
+    }
+
+    async function handleToggleFavorite() {
+        if(isFavorited) {
+            // Remove from favorites
+        } else {
+            // Add to favorites
+        }
     }
     
     return (

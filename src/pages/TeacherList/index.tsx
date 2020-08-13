@@ -46,7 +46,7 @@ function TeacherList () {
                     if(response) {
                         const favoritedTeachers = JSON.parse(response);
                         const favoritedTeachersIds = favoritedTeachers.map(
-                            (favoriteTeacher) => {
+                            (favoriteTeacher: Teacher) => {
                                 return favoriteTeacher.id;
                             }
                         );
@@ -152,7 +152,7 @@ function TeacherList () {
                                     favorited={favorites.includes(teacher.id)}
                                 />
                             );
-                      }  
+                        }  
                     )
                 }
             </ScrollView>
