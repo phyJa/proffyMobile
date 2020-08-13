@@ -27,6 +27,10 @@ import unfavoriteIcon from '../../assets/images/icons/unfavorite.png';
 import whatsAppIcon from '../../assets/images/icons/whatsapp.png';
 
 const TeacherItem:React.FC<TeacherItemProps> = ({teacher}) => {
+    function handleLinkToWhatsapp() {
+
+    }
+    
     return (
         <View style={styles.container}> 
             <View style={styles.profile}>
@@ -62,9 +66,12 @@ const TeacherItem:React.FC<TeacherItemProps> = ({teacher}) => {
                         <Image source={unfavoriteIcon} />
                     </RectButton>
 
-                    <RectButton style={styles.contactButton}>
+                    <RectButton 
+                        style={styles.contactButton}
+                        onPress={handleLinkToWhatsapp}
+                    >
                         <Image source={whatsAppIcon} />
-                        <Text style={styles.contactButtonText}>{teacher.whatsapp}</Text>
+                        <Text style={styles.contactButtonText}>Contact</Text>
                     </RectButton>
                 </View>
             </View>
