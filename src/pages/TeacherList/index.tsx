@@ -4,6 +4,7 @@ import { BorderlessButton, RectButton } from 'react-native-gesture-handler';
 import { Feather } from "@expo/vector-icons";
 import api from '../../services/api';
 import AsyncStorage from "@react-native-community/async-storage";
+import { useFocusEffect } from '@react-navigation/native';
 
 // Components and interfaces
 import PageHeader from '../../components/PageHeader';
@@ -12,7 +13,6 @@ import TeacherItem, { Teacher } from '../../components/TeacherItem';
 
 // Style
 import styles from './styles';
-
 
 function TeacherList () {
     // States
@@ -54,6 +54,11 @@ function TeacherList () {
             }
         )
     }
+
+    // This is not working... Its intention is to remove a teacher from the favorites in the favorites page
+    useFocusEffect(
+        () => { loadFavorites(); }
+    );
 
     async function handleFiltersSubmit() {
         loadFavorites();
