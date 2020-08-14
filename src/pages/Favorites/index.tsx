@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { View, ScrollView } from 'react-native';
 import AsyncStorage from "@react-native-community/async-storage";
+import { useFocusEffect } from "@react-navigation/native";
 
 // Style
 import styles from './styles';
@@ -28,11 +29,10 @@ export default function Favorites () {
         )
     }
 
-    useEffect(
+    useFocusEffect(
         () => {
             loadFavorites();
-        },
-        []
+        }
     );
 
     return (
