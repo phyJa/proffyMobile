@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { View, ScrollView } from 'react-native';
 import AsyncStorage from "@react-native-community/async-storage";
 
@@ -7,8 +7,7 @@ import styles from './styles';
 
 // Components
 import PageHeader from "../../components/PageHeader";
-import { Teacher } from '../../components/TeacherItem';
-import TeacherItem from "../../components/TeacherItem";
+import TeacherItem, { Teacher } from "../../components/TeacherItem";
 
 export default function Favorites () {
     // Favorites
@@ -23,16 +22,19 @@ export default function Favorites () {
             (response) => {
                 if(response) {
                     const favoritedTeachers = JSON.parse(response);
-                    const favoritedTeachersIds = favoritedTeachers.map(
-                        (favoriteTeacher: Teacher) => {
-                            return favoriteTeacher.id;
-                        }
-                    );
-                    setFavorites(favoritedTeachersIds);
+                    setFavorites(favoritedTeachers);
                 }
             }
         )
     }
+
+    useEffect(
+        () => {
+            loadFavorites();
+        },
+        []
+    );
+
     return (
         <View style={styles.container}>
             <PageHeader title="My favorite Proffys" />
@@ -44,7 +46,19 @@ export default function Favorites () {
                     paddingVertical: 16
                 }}
             >
-                
+                {
+                    favorites.map(
+                        (teacher: Teacher) => {
+                            return(
+                                <TeacherItem
+                                    key={teacher.id}
+                                    teacher={teacher}
+                                    favorited // favorited = {true}
+                                />
+                            );
+                        }
+                    )
+                }
             </ScrollView>
         </View>
     );
