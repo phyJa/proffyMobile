@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { View, Text, ScrollView, TextInput } from 'react-native';
 import { BorderlessButton, RectButton } from 'react-native-gesture-handler';
 import { Feather } from "@expo/vector-icons";
@@ -35,30 +35,29 @@ function TeacherList () {
         setIsFiltersVisible(!isFiltersVisible);
     }
 
-    useEffect(
-        () => {
-            // Go to the Phone Database, search for an item with a key named 'favorites'.
-            // The only thing you can save inside it is text.
-            // So, we will use the text data from the phone DataBase
-            // into JSON 
-            AsyncStorage.getItem('favorites').then(
-                (response) => {
-                    if(response) {
-                        const favoritedTeachers = JSON.parse(response);
-                        const favoritedTeachersIds = favoritedTeachers.map(
-                            (favoriteTeacher: Teacher) => {
-                                return favoriteTeacher.id;
-                            }
-                        );
-                        setFavorites(favoritedTeachersIds);
-                    }
+    function loadFavorites() {
+        // Go to the Phone Database, search for an item with a key named 'favorites'.
+        // The only thing you can save inside it is text.
+        // So, we will use the text data from the phone DataBase
+        // into JSON 
+        AsyncStorage.getItem('favorites').then(
+            (response) => {
+                if(response) {
+                    const favoritedTeachers = JSON.parse(response);
+                    const favoritedTeachersIds = favoritedTeachers.map(
+                        (favoriteTeacher: Teacher) => {
+                            return favoriteTeacher.id;
+                        }
+                    );
+                    setFavorites(favoritedTeachersIds);
                 }
-            )
-        },
-        []
-    )
+            }
+        )
+    }
 
     async function handleFiltersSubmit() {
+        loadFavorites();
+
         //To use queries, use it inside a params object
         const response = await api.get('/classes',
             {

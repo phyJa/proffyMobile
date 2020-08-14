@@ -36,31 +36,43 @@ const TeacherItem:React.FC<TeacherItemProps> = ({teacher, favorited}) => {
     }
 
     async function handleToggleFavorite() {
+        // Get the favorites from the phone database
+        const favorites = await AsyncStorage.getItem('favorites');
+
+        // Create an empty array
+        let favoritesArray = [];
+
+        // If the favorites from the database exist, put them in the empty array
+        if(favorites) {
+            favoritesArray = JSON.parse(favorites)
+        }
+
         if(isFavorited) {
             // Remove from favorites
+
+            const favoriteIndex = favoritesArray.findIndex(
+                (teacherItem: Teacher) =>  {
+                    return (teacherItem.id === teacher.id);
+                }
+            );
+            
+            // Remove the teacher from the favorite index
+            favoritesArray.splice(favoriteIndex, 1);
+
+            //Change the value of isFavorited to true
+            setIsFavorited(false);
         } else {
             // Add to favorites
-
-            // Get the favorites from the phone database
-            const favorites = await AsyncStorage.getItem('favorites');
-
-            // Create an empty array
-            let favoritesArray = [];
-
-            // If the favorites from the database exist, put them in the empty array
-            if(favorites) {
-                favoritesArray = JSON.parse(favorites)
-            }
             
             // Add the teacher to the favoritesArray
             favoritesArray.push(teacher);
 
             //Change the value of isFavorited to true
             setIsFavorited(true);
-
-            // Set in the phone storage the new favorites
-            await AsyncStorage.setItem('favorites', JSON.stringify(favoritesArray))
         }
+
+         // Set in the phone storage the new favorites
+         await AsyncStorage.setItem('favorites', JSON.stringify(favoritesArray));
     }
     
     return (
@@ -93,9 +105,18 @@ const TeacherItem:React.FC<TeacherItemProps> = ({teacher, favorited}) => {
                 </Text>
 
                 <View style={styles.buttonsContainer}>
-                    <RectButton style={[styles.favoriteButton, styles.favorited]}>
-                        {/* <Image source={heartOutlineIcon} /> */}
-                        <Image source={unfavoriteIcon} />
+                    <RectButton 
+                        style={[
+                            styles.favoriteButton, 
+                            isFavorited ? styles.favorited : {}
+                        ]}
+                        onPress={handleToggleFavorite}
+                    >
+                        {
+                            isFavorited 
+                                ? <Image source={unfavoriteIcon} />
+                                : <Image source={heartOutlineIcon} />
+                        }
                     </RectButton>
 
                     <RectButton 
