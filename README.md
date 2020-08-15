@@ -6,7 +6,7 @@ Hello! This is the mobile version of the Proffy platform and my first React Nati
 ## How does it work?
 ### If the user is a student
 - The user touches the study button
-![alt text][images/landing.png "Landing page"]
+![alt text](images/landing.png "Landing page")
 
 ## Future Updates
 
