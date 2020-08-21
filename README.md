@@ -74,7 +74,7 @@ we get:
     />
 </div>
 
-1. Touch "Contact" and your WhatsApp app will open searching for the teacher number! Cool!
+4. Touch "Contact" and your WhatsApp app will open searching for the teacher number! Cool!
 
 ### If the user is a teacher
 1. Touch the teach button
