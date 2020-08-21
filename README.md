@@ -19,7 +19,7 @@ This is the mobile version of the [Proffy platform](https://github.com/phyJa/pro
         class="landing"
         src="images/landing.png"
         alt="Landing page"
-        width="60%"
+        width="40%"
     />
 </div>
 
@@ -36,7 +36,7 @@ This is the mobile version of the [Proffy platform](https://github.com/phyJa/pro
         class="landing"
         src="images/proffys.png"
         alt="Landing page"
-        width="60%"
+        width="40%"
     />
 </div>
 
@@ -47,7 +47,7 @@ This is the mobile version of the [Proffy platform](https://github.com/phyJa/pro
         class="landing"
         src="images/form.png"
         alt="Landing page"
-        width="60%"
+        width="40%"
     />
 </div>
 
@@ -59,7 +59,7 @@ This is the mobile version of the [Proffy platform](https://github.com/phyJa/pro
         class="landing"
         src="images/data.png"
         alt="Landing page"
-        width="60%"
+        width="40%"
     />
 </div>
 
@@ -70,7 +70,7 @@ we get:
         class="landing"
         src="images/teacher.png"
         alt="Landing page"
-        width="60%"
+        width="40%"
     />
 </div>
 
