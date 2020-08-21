@@ -14,14 +14,14 @@ This is the mobile version of the [Proffy platform](https://github.com/phyJa/pro
 
 > Landing page
 
-
-<img
-    class="landing"
-    src="images/landing.png"
-    alt="Landing page"
-    width="50%"
-/>
-
+<div align="center">
+    <img
+        class="landing"
+        src="images/landing.png"
+        alt="Landing page"
+        width="60%"
+    />
+</div>
 
 
 ---
@@ -29,9 +29,56 @@ This is the mobile version of the [Proffy platform](https://github.com/phyJa/pro
 
 ## How does it work?
 ### If the user is a student
-1. The user touches the study button  
+1. The user touches the study button. He/she will be redirected to this page:
+
+<div align="center">
+    <img
+        class="landing"
+        src="images/proffys.png"
+        alt="Landing page"
+        width="60%"
+    />
+</div>
+
+2. Touch the filter icon and the following form will be displayed:
+
+<div align="center">
+    <img
+        class="landing"
+        src="images/form.png"
+        alt="Landing page"
+        width="60%"
+    />
+</div>
 
 
+3. Type your data and touch "Filter". Note that the week day must be typed as numbers, from 0 (Sunday) to 6 (Saturday). This will be fixed soon! An example, searching for
+
+<div align="center">
+    <img
+        class="landing"
+        src="images/data.png"
+        alt="Landing page"
+        width="60%"
+    />
+</div>
+
+we get:
+
+<div align="center">
+    <img
+        class="landing"
+        src="images/teacher.png"
+        alt="Landing page"
+        width="60%"
+    />
+</div>
+
+1. Touch "Contact" and your WhatsApp app will open searching for the teacher number! Cool!
+
+### If the user is a teacher
+1. Touch the teach button
+2. You will be told to access the proffy web page to submit your classes.
 
 ## Future Updates
 
